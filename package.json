@@ -1,0 +1,19 @@
+{
+  "name": "trombinoscope",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "trombinoscope": "sass --watch ./scss/input.scss:./assets/css/output.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaximeLeduey/Trombinoscope.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaximeLeduey/Trombinoscope/issues"
+  },
+  "homepage": "https://github.com/MaximeLeduey/Trombinoscope#readme"
+}
