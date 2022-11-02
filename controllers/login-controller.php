@@ -24,7 +24,7 @@ function is_credential_exists() {
 
 function get_pwd($credential) {
     $db = db_connect();
-    $sql = "SELECT password FROM `students_infos` WHERE credential = '$credential'";
+    $sql = "SELECT password FROM `users_infos` WHERE credential = '$credential'";
     $infosStmt = $db->query($sql);
     $infos = $infosStmt->fetchAll(PDO::FETCH_ASSOC);
     $password = $infos[0]['password'];
@@ -41,11 +41,44 @@ function verify_password() {
 
 function get_id($credential) {
     $db = db_connect();
-    $sql = "SELECT student_id FROM `students_infos` WHERE credential = '$credential'";
+    $sql = "SELECT user_id FROM `users_infos` WHERE credential = '$credential'";
     $infosStmt = $db->query($sql);
     $infos = $infosStmt->fetchAll(PDO::FETCH_ASSOC);
-    $id = $infos[0]['student_id'];
+    $id = $infos[0]['user_id'];
     return $id;
 }
+
+function create_session() {
+    session_start();
+    $id = get_id($_POST['credential']);
+    $_SESSION['id'] = $id;
+}
+
+function verifyAll() {
+    if(is_not_empty_and_defined($_POST['credential'])) {
+        if(is_credential_exists()) {
+            if(is_not_empty_and_defined($_POST['password'])) {
+                if(verify_password()) {
+                    header('Location: ../vues/dashboard.php');
+                    create_session();
+                }
+                else {
+                    echo "Mot de passe incorrect";
+                }
+            }
+            else {
+                echo "Veuillez saisir un mot de passe";
+            }
+        }
+        else {
+            echo "Identifiant incorrect";
+        }
+    }
+    else {
+        echo "Veuillez remplir le champ identifiant";
+    }
+}
+
+verifyAll();
 
 ?>
