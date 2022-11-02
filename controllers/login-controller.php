@@ -67,6 +67,7 @@ function get_id($credential) {
 function create_session() {
     session_start();
     $id = get_id($_POST['credential']);
+    $_SESSION['connected'] = 1;
     $_SESSION['id'] = $id;
     if(is_admin($id)) {
         $_SESSION['admin'] = true;

@@ -1,7 +1,9 @@
 <?php 
 require_once '../inc/header.php'; 
 require_once '../controllers/dashboard-controller.php'; 
-
+if(is_connected()) {
+    header('Location: ./dashboard.php');
+}
 
 ?>
 
