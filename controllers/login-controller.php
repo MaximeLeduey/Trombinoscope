@@ -38,6 +38,21 @@ function verify_password() {
     return password_verify($inputPwd, $dbPwd);
 }
 
+function is_admin($id) {
+    $db = db_connect();
+    $sql = "SELECT admin FROM `users_infos` WHERE user_id = '$id'";
+    $infosStmt = $db->query($sql);
+    $infos = $infosStmt->fetchAll(PDO::FETCH_ASSOC);
+    $isAdmin = $infos[0]['admin'];
+    if($isAdmin == 1) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+
 
 function get_id($credential) {
     $db = db_connect();
@@ -48,35 +63,39 @@ function get_id($credential) {
     return $id;
 }
 
+
 function create_session() {
     session_start();
     $id = get_id($_POST['credential']);
     $_SESSION['id'] = $id;
+    if(is_admin($id)) {
+        $_SESSION['admin'] = true;
+    }
+    else {
+        $_SESSION['admin'] = false;
+    }
 }
 
+$message;
 function verifyAll() {
-    if(is_not_empty_and_defined($_POST['credential'])) {
+    if(is_not_empty_and_defined($_POST['credential']) and (is_not_empty_and_defined($_POST['password']))) {
         if(is_credential_exists()) {
-            if(is_not_empty_and_defined($_POST['password'])) {
                 if(verify_password()) {
                     header('Location: ../vues/dashboard.php');
                     create_session();
                 }
                 else {
-                    echo "Mot de passe incorrect";
+                    $message = "Mot de passe incorrect";
                 }
-            }
-            else {
-                echo "Veuillez saisir un mot de passe";
-            }
         }
         else {
-            echo "Identifiant incorrect";
+            $message = "Identifiant ou mot de passe incorrect";
         }
     }
     else {
-        echo "Veuillez remplir le champ identifiant";
+        $message = "Veuillez remplir tous les champs";
     }
+    echo $message;
 }
 
 verifyAll();

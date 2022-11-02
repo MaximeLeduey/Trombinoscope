@@ -1,6 +1,7 @@
 <?php 
-session_start();
-echo $_SESSION['id'];
+require_once '../controllers/dashboard-controller.php';
+
+
 
 
 ?>
