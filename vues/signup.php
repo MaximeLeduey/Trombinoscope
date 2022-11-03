@@ -1,4 +1,7 @@
-<?php require_once '../inc/header.php' ?>
+<?php 
+require_once '../inc/header.php';
+require_once '../functions/functions.php' ;
+?>
 
 <form action="../controllers/signup-controller.php" method="post">
     <label for="firstName">Prénom</label>
@@ -15,15 +18,15 @@
     <input type="date" name="birth" required>
     <label for="status">Classe</label>
     <select name="grade">
-        <option value="1">bachelor 1</option>
-        <option value="2">bachelor 2</option>
-        <option value="3">bachelor 3</option>
+        <?php foreach(get_grades() as $grade) : ?>
+            <option value="<?= $grade['grade_id'] ?>"><?= $grade['grade_name'] ?></option>
+        <?php endforeach; ?>
     </select>
     <label for="status">Specialité</label>
     <select name="specialty">
-        <option value="1">developpeur web/app</option>
-        <option value="2">creative developper</option>
-        <option value="3">digital marketer et ui/ux designer</option>
+        <?php foreach(get_specialties() as $specialty) : ?>
+            <option value="<?= $specialty['specialty_id'] ?>"><?= $specialty['specialty_name'] ?></option>
+        <?php endforeach; ?>
     </select>
     <label for="status">Statut</label>
     <select name="status">
@@ -31,7 +34,7 @@
         <option value="1">admin</option>
     </select>
     <label for="password">Mot de passe</label>
-    <input type="password" name="password">
+    <input type="password" name="password" required>
     <button type="submit">Valider l'inscription</button>
 </form>
 

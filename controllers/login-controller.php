@@ -3,9 +3,6 @@
 require_once '../functions/functions.php';
 
 
-
-
-
 function get_pwd($credential) {
     $db = db_connect();
     $sql = "SELECT password FROM `users_infos` WHERE credential = '$credential'";

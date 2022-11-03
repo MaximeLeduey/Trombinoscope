@@ -1,17 +1,21 @@
 <?php
 require_once '../functions/functions.php';
 
-$name_regex = "/[a-zA-Z]{3,}[-]*[a-zA-Z]{3,}/i";
-$email_regex = "/[a-z\.\-\_]+@[a-z]+\.[a-z]{2,3}/i";
-$tel_regex = "/0[0-9]{9}/i";
+
 
 function check_exp($pattern, $exp) {
     if(preg_match($pattern, $exp) == 1) {
-        return "oui";
+        return true;
     }
     else {
-        return "non";
+        return false;
     }
+}
+
+function change_names($name) {
+    $name = strtolower($name);
+    $name = ucfirst($name);
+    return $name;
 }
 
 function change_date($date) {
@@ -53,21 +57,56 @@ function create_hashed_password($password) {
 
 function create_users() {
     $db = db_connect();
+    $lastName = change_names($_POST['lastName']);
+    $firstName = change_names($_POST['firstName']);
+    $city = change_names($_POST['city']);
     $age = age(change_date('birth'));
-    $credential = create_credential($_POST['lastName']);
+    $credential = create_credential($lastName);
     $password = create_hashed_password($_POST['password']);
     $sql = "INSERT INTO users (last_name, first_name, grade_id)
-    VALUES ('$_POST[lastName]', '$_POST[firstName]', '$_POST[grade]')";
+    VALUES ('$lastName', '$firstName', '$_POST[grade]')";
     $db->exec($sql);
-    $id = get_id($_POST['firstName'], $_POST['lastName']);
+    $id = get_id($firstName, $lastName);
     $sql = "INSERT INTO users_infos (specialty_id, city, email, tel, age, user_id, credential, password, admin)
-    VALUES ('$_POST[specialty]', '$_POST[city]', '$_POST[email]', '$_POST[tel]', '$age', '$id', '$credential', '$password', '$_POST[status]')";
+    VALUES ('$_POST[specialty]', '$city', '$_POST[email]', '$_POST[tel]', '$age', '$id', '$credential', '$password', '$_POST[status]')";
     $db->exec($sql);
-    header('Location: ../vues/signup.php');
     echo $sql;
 }
 
-create_users();
+function are_not_empty_and_defined() {
+    return false;
+    foreach($_POST as $input) {
+        if(is_not_empty_and_defined($input)) {
+            return true;
+        }
+    }
+}
+
+
+
+
+function verify_fields() {
+    if(are_not_empty_and_defined()) {
+        $name_regex = "/^[a-zA-Z]+$/";
+        $email_regex = "/^[a-z0-9\_\-\.]+@[\da-z\.-]+\.[a-z\.]{2,6}$/";
+        $tel_regex = "/^(0\+33)[1-9]([0-9]{2}){4}$/";
+        $password_regex = "/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/";
+        if(check_exp($name_regex, $_POST['firstName']) and check_exp($name_regex, $_POST['lastName']) 
+        and check_exp($email_regex, $_POST['email']) and check_exp($tel_regex, $_POST['tel']) and 
+        check_exp($password_regex, $_POST['password'])) {
+            create_users();
+        }
+        else {
+            echo "non";
+        }
+    }
+    else {
+        echo "pas defini";
+    }
+    // header('Location: ../vues/signup.php');
+}
+
+verify_fields();
 
 
 

@@ -28,4 +28,21 @@ function is_credential_exists($var) {
     }
 }
 
+function get_grades() {
+    $db = db_connect();
+    $sql = "SELECT grade_name, grade_id FROM `grades`";
+    $infosStmt = $db->query($sql);
+    $grades = $infosStmt->fetchAll(PDO::FETCH_ASSOC);
+    return $grades;
+}
+
+
+function get_specialties() {
+    $db = db_connect();
+    $sql = "SELECT specialty_name, specialty_id FROM `specialties`";
+    $infosStmt = $db->query($sql);
+    $specialties = $infosStmt->fetchAll(PDO::FETCH_ASSOC);
+    return $specialties;
+}
+
 ?>
