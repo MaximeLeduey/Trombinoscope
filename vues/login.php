@@ -11,9 +11,9 @@ if(is_connected()) {
 
 <form action="../controllers/login-controller.php" method="post">
     <label for="credential">Identifiant</label>
-    <input type="text" name="credential" id="credential">
+    <input type="text" name="credential" id="credential" maxlength="30" required>
     <label for="password">Mot de passe</label>
-    <input type="password" name="password" id="password">
+    <input type="password" name="password" id="password" maxlength="30" required>
     <button type="submit">Se connecter</button>
 </form>
 

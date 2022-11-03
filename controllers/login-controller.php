@@ -3,24 +3,8 @@
 require_once '../functions/functions.php';
 
 
-function is_not_empty_and_defined($input) {
-    return (!empty($input) and isset($input));
-}
 
 
-function is_credential_exists() {
-    $credentials = [];
-    foreach (get_users_infos() as $user) {
-        $user_credential = $user['credential'];
-        array_push($credentials, $user_credential);     
-    }
-    if(in_array($_POST['credential'], $credentials)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
 
 function get_pwd($credential) {
     $db = db_connect();
@@ -70,17 +54,17 @@ function create_session() {
     $_SESSION['connected'] = 1;
     $_SESSION['id'] = $id;
     if(is_admin($id)) {
-        $_SESSION['admin'] = true;
+        $_SESSION['admin'] = 1;
     }
     else {
-        $_SESSION['admin'] = false;
+        $_SESSION['admin'] = 0;
     }
 }
 
 $message;
 function verifyAll() {
     if(is_not_empty_and_defined($_POST['credential']) and (is_not_empty_and_defined($_POST['password']))) {
-        if(is_credential_exists()) {
+        if(is_credential_exists($_POST['credential'])) {
                 if(verify_password()) {
                     header('Location: ../vues/dashboard.php');
                     create_session();

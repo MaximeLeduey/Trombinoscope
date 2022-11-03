@@ -1,10 +1,11 @@
 <?php
     require_once '../Trombinoscope/inc/header.php';
+    header('Location: vues/login.php');
 ?>
 
 
 
-<p>Salut1</p>
+
 
 
 
