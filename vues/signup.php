@@ -16,21 +16,33 @@ require_once '../functions/functions.php' ;
     <input type="tel" name="tel" required>
     <label for="birth">Date de naissance</label>
     <input type="date" name="birth" required>
-    <label for="status">Classe</label>
+    <label for="grade">Classe</label>
     <select name="grade">
+        <?php $nbr1 = 1 ?>
         <?php foreach(get_grades() as $grade) : ?>
-            <option value="<?= $grade['grade_id'] ?>"><?= $grade['grade_name'] ?></option>
+            <?php if($nbr1 === 1): ?>
+                <option value="<?= $grade['grade_id'] ?>" selected><?= $grade['grade_name'] ?></option>
+            <?php else: ?>
+                <option value="<?= $grade['grade_id'] ?>"><?= $grade['grade_name'] ?></option>
+            <?php endif; ?>
+            <?php $nbr1++; ?>
         <?php endforeach; ?>
     </select>
-    <label for="status">Specialité</label>
+    <label for="specialty">Specialité</label>
     <select name="specialty">
+        <?php $nbr2 = 1 ?>
         <?php foreach(get_specialties() as $specialty) : ?>
-            <option value="<?= $specialty['specialty_id'] ?>"><?= $specialty['specialty_name'] ?></option>
+            <?php if($nbr2 === 1): ?>
+                <option value="<?= $specialty['specialty_id'] ?>" selected><?= $specialty['specialty_name'] ?></option>
+            <?php else: ?>
+                <option value="<?= $specialty['specialty_id'] ?>"><?= $specialty['specialty_name'] ?></option>
+            <?php endif; ?>
+            <?php $nbr2++; ?>
         <?php endforeach; ?>
     </select>
     <label for="status">Statut</label>
     <select name="status">
-        <option value="0">utilisateur</option>
+        <option value="0" selected>utilisateur</option>
         <option value="1">admin</option>
     </select>
     <label for="password">Mot de passe</label>
