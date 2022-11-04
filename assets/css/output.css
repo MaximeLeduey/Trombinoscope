@@ -1,8 +1,27 @@
-
-header {
+.header {
   width: 100vw;
   height: 126px;
   background-color: #054545;
+  display: flex;
+  align-items: center;
+}
+.header_logo, .header_icons {
+  position: absolute;
+}
+.header_logo {
+  left: 40px;
+}
+.header_icons {
+  right: 40px;
+  width: 109px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.global_container {
+  background-color: #054545;
+  width: 100vw;
+  height: 100vh;
 }
 
 /*# sourceMappingURL=output.css.map */

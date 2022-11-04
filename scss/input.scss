@@ -1,11 +1,39 @@
+@import 'variables';
+@import 'mixins';
 // --------------------------------------------------------------
 // styles du header
 // --------------------------------------------------------------
-@import 'variables';
 
 
-header {
+
+.header {
     width: 100vw;
     height: 126px;
     background-color: $main-color;
+    display: flex;
+    align-items: center;
+    &_logo, &_icons{
+        position: absolute;
+    }
+    &_logo{
+        left: 40px;
+    }
+    &_icons{
+        right: 40px;
+        width: 109px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+
+
+// --------------------------------------------------------------
+// styles du login
+// --------------------------------------------------------------
+
+.global_container {
+    background-color: $main-color;
+    width: 100vw;
+    height: 100vh;
 }

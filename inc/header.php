@@ -9,9 +9,9 @@
     <title>header</title>
 </head>
 <body>
-    <header>
-        <img class="logo" src="../assets/svg/logo.svg">
-        <div class="icons">
+    <header class="header">
+        <img class="header_logo" src="../assets/svg/logo.svg">
+        <div class="header_icons">
             <img class="user" src="../assets/svg/user.svg">
             <img class="menu" src="../assets/svg/menu.svg">
         </div>
