@@ -5,6 +5,7 @@ body * {
 h1 {
   font-family: "Abhaya libre medium";
   font-size: 50px;
+  color: white;
 }
 
 .header {
@@ -31,6 +32,14 @@ h1 {
   background-color: #054545;
   width: 100vw;
   height: 100vh;
+  height: 100vh;
+}
+
+.global_container, #login_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 input, button {
@@ -41,9 +50,18 @@ input, button {
   padding: 0;
 }
 
+button {
+  margin-bottom: 30px;
+}
+
 input {
   background-color: transparent;
   border: 1px solid white;
+  margin-bottom: 45px;
+}
+
+#password {
+  margin-bottom: 100px;
 }
 
 .btn-primary {

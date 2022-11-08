@@ -13,6 +13,7 @@ body * {
 h1 {
     font-family: $titles-font;
     font-size: 50px;
+    color: white;
 }
 
 
@@ -48,10 +49,20 @@ h1 {
 // styles du login
 // --------------------------------------------------------------
 
+
+
 .global_container {
     background-color: $main-color;
     width: 100vw;
     height: 100vh;
+    height: 100vh;
+}
+
+.global_container, #login_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 input, button {
@@ -62,9 +73,18 @@ input, button {
     padding: 0;
 }
 
+button {
+    margin-bottom: 30px;
+}
+
 input {
     background-color: transparent;
     border: 1px solid white;
+    margin-bottom: 45px;
+}
+
+#password {
+    margin-bottom: 100px;
 }
 
 .btn-primary {
