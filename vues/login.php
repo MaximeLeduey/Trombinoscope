@@ -18,15 +18,17 @@ if(is_connected()) {
 </head>
 <body>
     <div class="global_container">
-        <h1>Connexion</h1>
-        <div class="form_container">
-            <form action="../controllers/login-controller.php" method="post">
-                <div class="input_container">
-                    <input type="text" name="credential" id="credential" maxlength="30" placeholder="Identifiant" required>
-                    <input type="password" name="password" id="password" maxlength="30" placeholder="Mot de passe" required>
-                </div>
-                <button type="submit" class="btn-primary">Se connecter</button>
-            </form>
+        <div class="wrapper">
+            <h1>Connexion</h1>
+            <div class="wrapper_form">
+                <form action="../controllers/login-controller.php" method="post">
+                    <div class="wrapper_inputs">
+                        <input type="text" name="credential" id="credential" maxlength="30" placeholder="Identifiant" required>
+                        <input type="password" name="password" id="password" maxlength="30" placeholder="Mot de passe" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Se connecter</button>
+                </form>
+            </div>
         </div>
     </div>
 
