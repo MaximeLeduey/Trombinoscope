@@ -27,10 +27,13 @@ h1 {
     width: 100vw;
     height: 126px;
     background-color: $main-color; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav {
-    width: 100vw;
+    width: 90vw;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -65,45 +68,46 @@ h1 {
             transition: all 0.3s ease-in-out;
         }
     }
+    @media(max-width: $tablet) {
+        &_burger {
+            display: block;
+        }
+        &_burger.active {
+            .nav_burger_bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .nav_burger_bar:nth-child(2) {
+                opacity: 0;
+            }
+            .nav_burger_bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+        &_menu {
+            position: fixed;
+            left: -100%;
+            top: 126px;
+            gap: 0;
+            flex-direction: column;
+            background-color: $gray;
+            width: 100%;
+            text-align: center;
+            transition: 0.3s;
+            &_li {
+                margin: 16px 0;
+                &_link {
+                    color: $main-color;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+            }
+        }
+        &_menu.active {
+            left: 0;
+        }
+    }
 }
 
-@media(max-width: 768px) {
-    .nav_burger {
-        display: block;
-    }
-    .nav_burger.active .nav_burger_bar:nth-child(2) {
-        opacity: 0;
-    }
-    .nav_burger.active .nav_burger_bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    .nav_burger.active .nav_burger_bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-    .nav_menu {
-        position: fixed;
-        left: -100%;
-        top: 126px;
-        gap: 0;
-        flex-direction: column;
-        background-color: $gray;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-    }
-    .nav_menu_li {
-        margin: 16px 0;
-    }
-    .nav_menu_li_link {
-        color: $main-color;
-        font-size: 20px;
-        font-weight: bold;
-    }
-    .nav_menu.active {
-        left: 0;
-    }
-
-}
 
 
 

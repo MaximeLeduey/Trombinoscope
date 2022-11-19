@@ -3,7 +3,7 @@ require_once '../inc/header.php';
 require_once '../functions/functions.php' ;
 ?>
 
-<form action="../controllers/signup-controller.php" method="post">
+<form action="../controllers/signup-controller.php" method="post" enctype="multipart/form-data">
     <label for="firstName">Prénom</label>
     <input type="text" name="firstName" maxlength="30" required>
     <label for="lastName">Nom</label>
@@ -47,6 +47,7 @@ require_once '../functions/functions.php' ;
     </select>
     <label for="password">Mot de passe</label>
     <input type="password" name="password" required>
+    <input type="file" name="image" placeholder="image" required>
     <button type="submit">Valider l'inscription</button>
 </form>
 

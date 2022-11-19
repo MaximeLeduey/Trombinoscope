@@ -71,6 +71,22 @@ function get_id($firstName, $lastName): int {
 }
 
 
+/** fonction qui va chercher l'id de l'image selon l'id de l'utilisateur
+ * @param int $id
+ * @return int
+ */
+
+function get_image_id(int $id) : int {
+    $db = db_connect();
+    $sql = "SELECT img_id FROM `images` WHERE user_id = '$id'";
+    $infosStmt = $db->query($sql);
+    $infos = $infosStmt->fetchAll(PDO::FETCH_ASSOC);
+    $id = $infos[0]['img_id'];
+    return $id;
+}
+
+
+
 /** fonction qui cree un identifiant au nouvel utilisateur selon
  *  son nom de famille (nom en majuscule + numero derriere)
  * @param string $lastName
@@ -129,8 +145,17 @@ function create_users() {
     VALUES ('$lastName', '$firstName', '$_POST[grade]')";
     $db->exec($sql);
     $id = get_id($firstName, $lastName);
-    $sql = "INSERT INTO users_infos (specialty_id, city, email, tel, age, user_id, credential, password, admin)
-    VALUES ('$_POST[specialty]', '$city', '$_POST[email]', '$_POST[tel]', '$age', '$id', '$credential', '$password', '$_POST[status]')";
+    $image_content = file_get_contents($_FILES['image']['tmp_name']);
+    $image_name = $_FILES['image']['name'];
+    $image_size = $_FILES['image']['size'];
+    $image_type = $_FILES['image']['type'];
+    print_r($_FILES);
+    $sql = "INSERT INTO images (img_name, img_size, img_type, img_bin, user_id)
+    VALUES ('$image_name', '$image_size', '$image_type', '$image_content', '$id')";
+    $db->exec($sql);
+    $img_id = get_image_id($id);
+    $sql = "INSERT INTO users_infos (specialty_id, city, email, tel, age, user_id, credential, password, admin, img_id)
+    VALUES ('$_POST[specialty]', '$city', '$_POST[email]', '$_POST[tel]', '$age', '$id', '$credential', '$password', '$_POST[status]', '$img_id')";
     $db->exec($sql);
 }
 

@@ -1,6 +1,3 @@
-<?php 
-require_once '../controllers/dashboard-controller.php';
-?>
 
 <!DOCTYPE html>
 <html lang="en">
