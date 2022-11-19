@@ -1,4 +1,4 @@
-
+<?php require_once '../controllers/dashboard-controller.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,12 +14,13 @@
     <header class="header">
         <nav class="nav">
             <img class="nav_logo" src="../assets/svg/logo.svg">
+            <?php if(is_connected()): ?>
             <ul class="nav_menu">
                 <li class="nav_menu_li">
                     <a href="../controllers/logout.php" class="nav_menu_li_link">Se deconnecter</a>
                 </li>
                 <li class="nav_menu_li">
-                    <a href="#" class="nav_menu_li_link">Item</a>
+                    <a href="../vues/signup.php" class="nav_menu_li_link">Créer un étudiant</a>
                 </li>
                 <li class="nav_menu_li">
                     <a href="#" class="nav_menu_li_link">Item</a>
@@ -33,6 +34,7 @@
                 <div class="nav_burger_bar"></div>
                 <div class="nav_burger_bar"></div>
             </div>
+            <?php endif; ?>
         </nav> 
     </header>
 

@@ -2,6 +2,16 @@
 require_once '../functions/functions.php';
 
 
+/** fonction qui enleve les caractères speciaux 
+ * @param string 
+ * @return string
+ */
+
+function sanitize(string $string) : string{
+    return filter_var($string, FILTER_SANITIZE_SPECIAL_CHARS);
+}
+
+echo sanitize("@salut");
 
 /** function qui teste si l'expression donnée en paramètre matche avec la regex
  * @param $pattern, @param $exp
@@ -76,14 +86,14 @@ function get_id($firstName, $lastName): int {
  * @return int
  */
 
-function get_image_id(int $id) : int {
-    $db = db_connect();
-    $sql = "SELECT img_id FROM `images` WHERE user_id = '$id'";
-    $infosStmt = $db->query($sql);
-    $infos = $infosStmt->fetchAll(PDO::FETCH_ASSOC);
-    $id = $infos[0]['img_id'];
-    return $id;
-}
+// function get_image_id(int $id) : int {
+//     $db = db_connect();
+//     $sql = "SELECT img_id FROM `images` WHERE user_id = '$id'";
+//     $infosStmt = $db->query($sql);
+//     $infos = $infosStmt->fetchAll(PDO::FETCH_ASSOC);
+//     $id = $infos[0]['img_id'];
+//     return $id;
+// }
 
 
 
@@ -145,17 +155,17 @@ function create_users() {
     VALUES ('$lastName', '$firstName', '$_POST[grade]')";
     $db->exec($sql);
     $id = get_id($firstName, $lastName);
-    $image_content = file_get_contents($_FILES['image']['tmp_name']);
-    $image_name = $_FILES['image']['name'];
-    $image_size = $_FILES['image']['size'];
-    $image_type = $_FILES['image']['type'];
-    print_r($_FILES);
-    $sql = "INSERT INTO images (img_name, img_size, img_type, img_bin, user_id)
-    VALUES ('$image_name', '$image_size', '$image_type', '$image_content', '$id')";
-    $db->exec($sql);
-    $img_id = get_image_id($id);
-    $sql = "INSERT INTO users_infos (specialty_id, city, email, tel, age, user_id, credential, password, admin, img_id)
-    VALUES ('$_POST[specialty]', '$city', '$_POST[email]', '$_POST[tel]', '$age', '$id', '$credential', '$password', '$_POST[status]', '$img_id')";
+    // $image_content = file_get_contents($_FILES['image']['tmp_name']);
+    // $image_name = $_FILES['image']['name'];
+    // $image_size = $_FILES['image']['size'];
+    // $image_type = $_FILES['image']['type'];
+    // print_r($_FILES);
+    // $sql = "INSERT INTO images (img_name, img_size, img_type, img_bin, user_id)
+    // VALUES ('$image_name', '$image_size', '$image_type', '$image_content', '$id')";
+    // $db->exec($sql);
+    // $img_id = get_image_id($id);
+    $sql = "INSERT INTO users_infos (specialty_id, city, email, tel, age, user_id, credential, password, admin)
+    VALUES ('$_POST[specialty]', '$city', '$_POST[email]', '$_POST[tel]', '$age', '$id', '$credential', '$password', '$_POST[status]')";
     $db->exec($sql);
 }
 
