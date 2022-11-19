@@ -10,4 +10,3 @@ require_once '../inc/header.php';
 
 ?>
 
-<a href="../controllers/logout.php">Se deconnecter</a>

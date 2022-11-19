@@ -3,7 +3,13 @@
 require_once '../functions/functions.php';
 
 
-function get_pwd($credential) {
+
+/** fonction qui va chercher le mot de passe selon l'identifiant
+ * @param string $credential
+ * @return string
+ */
+
+function get_pwd($credential) : string  {
     $db = db_connect();
     $sql = "SELECT password FROM `users_infos` WHERE credential = '$credential'";
     $infosStmt = $db->query($sql);
@@ -13,13 +19,24 @@ function get_pwd($credential) {
 }
 
 
-function verify_password() {
+/** fonction qui verifie si le mot de passe rentré par l'utilisateur correspond au mot de passe hashé pris dans la base
+ * de données
+ * @return bool
+ */
+
+function verify_password() : bool {
     $inputPwd = $_POST['password'];
     $dbPwd = get_pwd($_POST["credential"]);
     return password_verify($inputPwd, $dbPwd);
 }
 
-function is_admin($id) {
+
+/** fonction qui verifie si l'utilisateur qui veut se connecter est un admin
+ * @param int $id
+ * @return bool
+ */
+
+function is_admin($id) : bool {
     $db = db_connect();
     $sql = "SELECT admin FROM `users_infos` WHERE user_id = '$id'";
     $infosStmt = $db->query($sql);
@@ -34,8 +51,12 @@ function is_admin($id) {
 }
 
 
+/** fonction qui va chercher l'id de l'utilisateur selon son identifiant
+ * @param string $credential
+ * @return int 
+ */
 
-function get_id($credential) {
+function get_id($credential) : int {
     $db = db_connect();
     $sql = "SELECT user_id FROM `users_infos` WHERE credential = '$credential'";
     $infosStmt = $db->query($sql);
@@ -44,6 +65,10 @@ function get_id($credential) {
     return $id;
 }
 
+
+/** fonction qui cree une session pour l'utilisateur qui se connecte, avec les bonnes informations
+ * 
+ */
 
 function create_session() {
     session_start();
@@ -57,6 +82,12 @@ function create_session() {
         $_SESSION['admin'] = 0;
     }
 }
+
+
+/** fonction qui verifie toutes les informations à l'aide des fonctions ci-dessus, et qui
+ * connecte ou non l'utilisateur 
+ * 
+ */
 
 $message;
 function verifyAll() {
