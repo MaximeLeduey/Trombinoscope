@@ -23,6 +23,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 2;
 }
 .nav_menu {
   display: flex;
@@ -95,7 +96,6 @@ h1 {
   background-color: #054545;
   width: 100vw;
   height: 100vh;
-  height: 100vh;
 }
 
 .global_container, #login_form {
@@ -134,7 +134,8 @@ input {
 }
 
 .users_list {
-  width: 100vw;
+  width: 80vw;
+  margin: 0 auto;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -169,9 +170,55 @@ input {
   font-size: 25px;
   color: #054545;
 }
+.user_form {
+  width: 100%;
+}
 .user_btn {
   width: 100%;
   margin: 0;
+  color: white;
+}
+
+.grade_title {
+  text-align: center;
+  color: #054545;
+  margin-top: 25px;
+}
+
+.user_details {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 595px;
+  position: absolute;
+  top: 140px;
+}
+.user_details_img {
+  background-color: #C76666;
+  width: 325px;
+  height: 325px;
+  border-radius: 100%;
+}
+.user_details_infos {
+  width: 310px;
+  height: 175px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.user_details_infos * {
+  color: white;
+  font-size: 14px;
+  margin-left: 20px;
+}
+.user_details_names {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=output.css.map */

@@ -17,16 +17,18 @@
             <?php if(is_connected()): ?>
             <ul class="nav_menu">
                 <li class="nav_menu_li">
-                    <a href="../controllers/logout.php" class="nav_menu_li_link">Se deconnecter</a>
+                    <a href="../vues/dashboard.php" class="nav_menu_li_link">Accueil</a>
                 </li>
+                <?php if($_SESSION['admin']): ?>
                 <li class="nav_menu_li">
                     <a href="../vues/signup.php" class="nav_menu_li_link">Créer un étudiant</a>
                 </li>
+                <?php endif; ?>
                 <li class="nav_menu_li">
-                    <a href="#" class="nav_menu_li_link">Item</a>
+                    <a href="../controllers/logout.php" class="nav_menu_li_link">Se deconnecter</a>
                 </li>
                 <li class="nav_menu_li">
-                    <a href="#" class="nav_menu_li_link">Item</a>
+                <a href="#" class="nav_menu_li_link">Mon compte</a>
                 </li>
             </ul>
             <div class="nav_burger">

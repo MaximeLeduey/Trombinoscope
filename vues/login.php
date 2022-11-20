@@ -1,5 +1,5 @@
 <?php 
-require_once '../controllers/dashboard-controller.php'; 
+require_once __DIR__.'/../controllers/dashboard-controller.php'; 
 if(is_connected()) {
     header('Location: ./dashboard.php');
 }
@@ -27,4 +27,4 @@ if(is_connected()) {
     </div>
 
 </body>
-<?php require_once '../inc/footer.php'; ?>
+<?php require_once __DIR__.'/../inc/footer.php'; ?>

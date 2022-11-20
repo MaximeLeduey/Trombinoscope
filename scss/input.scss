@@ -38,6 +38,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 2;
     &_menu {
         display: flex;
         justify-content: space-between;
@@ -121,7 +122,6 @@ h1 {
     background-color: $main-color;
     width: 100vw;
     height: 100vh;
-    height: 100vh;
 }
 
 .global_container, #login_form {
@@ -167,7 +167,8 @@ input {
 
 
 .users_list {
-    width: 100vw;
+    width: 80vw;
+    margin: 0 auto;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -199,8 +200,59 @@ input {
         font-size: 25px;
         color: $main-color
     }
+    &_form {
+        width: 100%;
+    }
     &_btn {
         width: 100%;
         margin: 0;
+        color: white;
+    }
+}
+
+.grade_title {
+    text-align: center;
+    color: $main-color;
+    margin-top: 25px;
+}
+
+
+// --------------------------------------------------------------
+// styles de la page details
+// --------------------------------------------------------------
+
+.user_details {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 595px;
+    position: absolute;
+    top:140px;
+    &_img {
+        background-color: $second-color;
+        width: 325px;
+        height: 325px;
+        border-radius: 100%;
+    }
+    &_infos {
+        width: 310px;
+        height: 175px;
+        background-color: rgba(0,0,0, 0.2);
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    &_infos * {
+        color: white;
+        font-size: 14px;
+        margin-left: 20px;
+    }
+    &_names {
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
     }
 }

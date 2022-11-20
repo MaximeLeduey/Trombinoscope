@@ -1,6 +1,12 @@
 <?php 
 require_once '../inc/header.php';
 require_once '../functions/functions.php' ;
+
+if(!$_SESSION['admin']) {
+    header('Location: ./dashboard.php');
+}
+
+
 ?>
 
 <form action="../controllers/signup-controller.php" method="post" enctype="multipart/form-data">

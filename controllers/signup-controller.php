@@ -1,5 +1,5 @@
 <?php
-require_once '../functions/functions.php';
+require_once __DIR__.'/../functions/functions.php';
 
 
 /** fonction qui enleve les caractères speciaux 
