@@ -1,4 +1,4 @@
-<?php require_once '../controllers/dashboard-controller.php' ?>
+<?php require_once __DIR__.'/../controllers/dashboard-controller.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

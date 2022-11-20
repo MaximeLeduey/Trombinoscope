@@ -160,3 +160,47 @@ input {
     font-weight: bold;
 }
 
+
+// --------------------------------------------------------------
+// styles du dashboard
+// --------------------------------------------------------------
+
+
+.users_list {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 55px;
+    @media(min-width: $tablet) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
+
+.user {
+    height: 274px;
+    width: 228px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    &_img {
+        width: 144px;
+        height: 144px;
+        background-color: $main-color;
+        border-radius: 100%;
+    }
+    &_names {
+        font-weight: bold;
+        font-size: 25px;
+        color: $main-color
+    }
+    &_btn {
+        width: 100%;
+        margin: 0;
+    }
+}

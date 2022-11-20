@@ -133,4 +133,45 @@ input {
   font-weight: bold;
 }
 
+.users_list {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 55px;
+}
+@media (min-width: 768px) {
+  .users_list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+
+.user {
+  height: 274px;
+  width: 228px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.user_img {
+  width: 144px;
+  height: 144px;
+  background-color: #054545;
+  border-radius: 100%;
+}
+.user_names {
+  font-weight: bold;
+  font-size: 25px;
+  color: #054545;
+}
+.user_btn {
+  width: 100%;
+  margin: 0;
+}
+
 /*# sourceMappingURL=output.css.map */
