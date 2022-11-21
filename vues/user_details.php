@@ -9,7 +9,7 @@ if(!is_not_empty_and_defined($_POST['user_id'])) {
 
 <div class="global_container">
     <div class="user_details">
-        <div class="user_details_img"></div>
+    <img src="data:image/jpeg;base64,<?=get_image_by_id($_POST['user_id'])[0]['img_bin'] ?>" class="user_details_img">
         <h2 class="user_details_names"><?= get_names_by_id($_POST['user_id'])[0]['first_name'].' '.get_names_by_id($_POST['user_id'])[0]['last_name'] ?></h2>
         <div class="user_details_infos">
             <p class="user_details_age">Age : <?= get_user_infos_by_id($_POST['user_id'])[0]['age'] ?> </p>

@@ -29,7 +29,7 @@ if(!is_not_empty_and_defined($_POST)) {
 <div class="users_list">
     <?php foreach(get_users_by_grade($_POST['grade']) as $user): ?>
         <div class="user">
-            <div class="user_img"></div>
+            <img src="data:image/jpeg;base64,<?=get_image_by_id($user['user_id'])[0]['img_bin'] ?>" class="user_img">
             <h2 class="user_names"><?= $user['first_name'].' '.$user['last_name'] ?></h2>
             <form class="user_form" action="../vues/user_details.php" method="post">
                 <input type="submit" name="user_id" value="<?= $user['user_id'] ?>" class="user_btn btn-primary" placeholder="Consulter le profil">

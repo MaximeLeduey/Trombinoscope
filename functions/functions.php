@@ -123,6 +123,17 @@ function get_names_by_id($user_id) : array {
     return $names_by_id;
 }
 
+/** fonction qui va chercher l'image pour un user_id donné
+ * @param int $user_id
+ * @return array
+ */
 
+function get_image_by_id(int $user_id) : array {
+    $db = db_connect();
+    $sql = "SELECT img_bin FROM `images` WHERE user_id = '$user_id'";
+    $infosStmt = $db->query($sql);
+    $image_by_id = $infosStmt->fetchAll(PDO::FETCH_ASSOC);
+    return $image_by_id;
+}
 
 ?>
