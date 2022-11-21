@@ -11,6 +11,7 @@ if(!is_not_empty_and_defined($_POST)) {
 ?>
 
 <?php $current_grade_index = $_POST['grade'] - 1; ?>
+<div id="grade">
 <h1 class="grade_title"><?= get_grades()[$current_grade_index]['grade_name'] ?></h1>
 <form action="" method="post" class="grades_form">
     <select name="grade" id="grade-select">
@@ -24,8 +25,9 @@ if(!is_not_empty_and_defined($_POST)) {
             <?php $incrementNbr++ ?>
         <?php endforeach; ?>
     </select>
-    <button type="submit">Valider</button>
+    <button class="btn-secondary" type="submit">Valider</button>
 </form>
+</div>
 <div class="users_list">
     <?php foreach(get_users_by_grade($_POST['grade']) as $user): ?>
         <div class="user">

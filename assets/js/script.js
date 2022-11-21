@@ -10,3 +10,4 @@ burger.addEventListener("click", () => {
 lis.forEach(n => n.addEventListener("click", () => 
     burger.classList.remove("active")
 ))
+

@@ -16,6 +16,45 @@ h1 {
     color: white;
 }
 
+label, select {
+    margin-bottom: 30px;
+}
+
+label {
+    color: $main-color;
+}
+
+.btn-primary, .btn-secondary {
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.7s ease;
+}
+
+.btn-primary {
+    background-color: $second-color;
+    border: none;
+    color: white;
+}
+
+.btn-primary:hover {
+    border: 1px solid $second-color;
+    color: $second-color;
+    background-color: white;
+}
+
+.btn-secondary {
+    border: 1px solid $second-color;
+    color: $second-color;
+    background-color: white;
+}
+
+.btn-secondary:hover {
+    background-color: $second-color;
+    border: none;
+    color: white;
+}
+
 
 // --------------------------------------------------------------
 // styles du header
@@ -105,6 +144,11 @@ h1 {
         }
         &_menu.active {
             left: 0;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            li:last-child {
+                margin-bottom: 50px;
+            }
         }
     }
 }
@@ -141,24 +185,22 @@ input, button {
 
 button {
     margin-bottom: 30px;
+    cursor: pointer;
 }
 
+
 input {
+    text-decoration: none;
     background-color: transparent;
     border: 1px solid white;
     margin-bottom: 45px;
 }
 
+
 #password {
     margin-bottom: 100px;
 }
 
-.btn-primary {
-    background-color: $second-color;
-    border: none;
-    font-size: 14px;
-    font-weight: bold;
-}
 
 
 // --------------------------------------------------------------
@@ -213,9 +255,15 @@ input {
 .grade_title {
     text-align: center;
     color: $main-color;
-    margin-top: 25px;
+    margin: 25px 0;
 }
 
+#grade, #grade form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 
 // --------------------------------------------------------------
 // styles de la page details
@@ -269,4 +317,25 @@ input {
             margin-bottom: 0px;
         }
     }
+}
+
+
+// --------------------------------------------------------------
+// styles de la page d'inscription'
+// --------------------------------------------------------------
+
+.signup-form input, .modify-form input {
+    border: 1px solid $second-color;
+}
+
+.signup-form, .modify-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#image {
+    border:none;
 }

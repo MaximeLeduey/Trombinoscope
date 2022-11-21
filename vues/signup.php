@@ -9,18 +9,18 @@ if(!$_SESSION['admin']) {
 
 ?>
 
-<form action="../controllers/signup-controller.php" method="post" enctype="multipart/form-data">
-    <label for="firstName">Prénom</label>
-    <input type="text" name="firstName" maxlength="30" required>
-    <label for="lastName">Nom</label>
-    <input type="text" name="lastName" maxlength="30" required>
-    <label for="city">Ville</label>
-    <input type="text" name="city" maxlength="30" required>
-    <label for="email">Email</label>
-    <input type="email" name="email" required>
-    <label for="tel">Téléphone</label>
-    <input type="tel" name="tel" required>
-    <label for="birth">Date de naissance</label>
+<form class="signup-form" action="../controllers/signup-controller.php" method="post" enctype="multipart/form-data">
+    <!-- <label for="firstName">Prénom</label> -->
+    <input type="text" name="firstName" maxlength="30"placeholder="Prénom" required>
+    <!-- <label for="lastName">Nom</label> -->
+    <input type="text" name="lastName" maxlength="30" placeholder="Nom" required>
+    <!-- <label for="city">Ville</label> -->
+    <input type="text" name="city" maxlength="30" placeholder="Ville" required>
+    <!-- <label for="email">Email</label> -->
+    <input type="email" name="email" placeholder="Email" required>
+    <!-- <label for="tel">Téléphone</label> -->
+    <input type="tel" name="tel" placeholder="Tel" required>
+    <!-- <label for="birth">Date de naissance</label> -->
     <input type="date" name="birth" required>
     <label for="grade">Classe</label>
     <select name="grade">
@@ -51,10 +51,10 @@ if(!$_SESSION['admin']) {
         <option value="0" selected>utilisateur</option>
         <option value="1">admin</option>
     </select>
-    <label for="password">Mot de passe</label>
-    <input type="password" name="password" required>
-    <input type="file" name="image" placeholder="image" required>
-    <button type="submit">Valider l'inscription</button>
+    <!-- <label for="password">Mot de passe</label> -->
+    <input type="password" name="password" placeholder="Mot de passe" required>
+    <input type="file" id="image" name="image" placeholder="image" required>
+    <button class="btn-primary" type="submit">Valider l'inscription</button>
 </form>
 
 
