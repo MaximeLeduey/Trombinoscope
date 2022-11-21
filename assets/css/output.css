@@ -191,7 +191,7 @@ input {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 595px;
+  height: 795px;
   position: absolute;
   top: 140px;
 }
@@ -219,6 +219,22 @@ input {
   color: white;
   font-size: 25px;
   font-weight: bold;
+}
+.user_details_buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 150px;
+  width: 80vw;
+}
+@media (min-width: 768px) {
+  .user_details_buttons {
+    justify-content: space-around;
+  }
+}
+.user_details_buttons button, .user_details_buttons input {
+  margin-bottom: 0px;
 }
 
 /*# sourceMappingURL=output.css.map */

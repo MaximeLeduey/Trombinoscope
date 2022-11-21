@@ -227,7 +227,7 @@ input {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 595px;
+    height: 795px;
     position: absolute;
     top:140px;
     &_img {
@@ -254,5 +254,19 @@ input {
         color: white;
         font-size: 25px;
         font-weight: bold;
+    }
+    &_buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 150px;
+        width: 80vw;
+        @media(min-width: $tablet) {
+            justify-content: space-around;
+        }
+        button, input{
+            margin-bottom: 0px;
+        }
     }
 }

@@ -1,6 +1,20 @@
 <?php
 require_once __DIR__.'/../libraries/db.php';
 
+
+
+
+
+
+/** fonction qui retourne une condition pour savoir si la valeur de l'input est definie et non nulle 
+ *
+ */
+
+function is_not_empty_and_defined($input) {
+    return (!empty($input) and isset($input));
+}
+
+
 /** fonction qui va chercher toutes les informations de la table users infos
  * @return array
  */
@@ -14,33 +28,6 @@ function get_users_infos() : array {
     return $users_infos;
 }
 
-/** fonction qui retourne une condition pour savoir si la valeur de l'input est definie et non nulle 
- *
- */
-
-function is_not_empty_and_defined($input) {
-    return (!empty($input) and isset($input));
-}
-
-
-/** fonction qui verifie si l'identifiant rentré par l'utilisateur correspond à un des identifiants de la bdd
- * @param string $var
- * @return bool
- */
-
-function is_credential_exists($credential) {
-    $credentials = [];
-    foreach (get_users_infos() as $user) {
-        $user_credential = $user['credential'];
-        array_push($credentials, $user_credential);     
-    }
-    if(in_array($credential, $credentials)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
 
 
 /** fonction qui va chercher le nom et l'id de chaque niveau de classe dans la table grades
@@ -90,7 +77,7 @@ function get_users_by_grade(int $grade_id) : array {
 
 function get_user_infos_by_id(int $user_id) : array {
     $db = db_connect();
-    $sql = "SELECT age, specialty_id, city, email FROM `users_infos` WHERE user_id = '$user_id'";
+    $sql = "SELECT * FROM `users_infos` WHERE user_id = '$user_id'";
     $infosStmt = $db->query($sql);
     $user_infos_by_id = $infosStmt->fetchAll(PDO::FETCH_ASSOC);
     return $user_infos_by_id;

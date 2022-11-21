@@ -1,7 +1,7 @@
 <?php 
 
 require_once __DIR__.'/../functions/functions.php';
-
+require_once __DIR__.'/../controllers/commons_functions_in_controllers.php';
 
 
 /** fonction qui va chercher le mot de passe selon l'identifiant

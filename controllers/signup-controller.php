@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__.'/../functions/functions.php';
+require_once __DIR__.'/../controllers/commons_functions_in_controllers.php';
+
 
 
 /** fonction qui enleve les caractères speciaux 
@@ -9,33 +11,6 @@ require_once __DIR__.'/../functions/functions.php';
 
 function sanitize(string $string) : string{
     return filter_var($string, FILTER_SANITIZE_SPECIAL_CHARS);
-}
-
-
-/** function qui teste si l'expression donnée en paramètre matche avec la regex
- * @param $pattern, @param $exp
- * @return bool
- */
-
-function check_exp($pattern, $exp) : bool {
-    if(preg_match($pattern, $exp) == 1) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-
-/** function qui met en majuscule la premiere lettre d'une chaine de caractère (ici les nom, prénom)
- * @param string $name
- * @return string 
- */
-
-function change_names($name) : string {
-    $name = strtolower($name);
-    $name = ucfirst($name);
-    return $name;
 }
 
 
@@ -113,16 +88,6 @@ function create_credential($lastName) : string {
 }
 
 
-/** fonction qui hash le mot de passe 
- * @param string $password
- * @return string
- */
-
-function create_hashed_password($password) : string {
-    return password_hash($password, PASSWORD_DEFAULT);
-}
-
-
 /** fonction qui retourne une grande condition pour savoir si 
  * tous les champs sont definis et non nulls (la fonction is_not_empty_and_defined est
  * declaree dans le functions.php)
@@ -137,35 +102,6 @@ function are_not_empty_and_defined() {
      is_not_empty_and_defined($_POST['status']) and is_not_empty_and_defined($_POST['password']));
  }
 
-
-/** fonction qui verifie la taille de l'image à uploader 
- * @param float $size
- * @return bool
- */
-
-function verify_img_size(float $size) : bool {
-    if($size > 2000000) {
-        return false;
-    }
-    else {
-        return true;
-    }
-}
-
-
-/** fonction qui verifie le type du fichier à uploader
- * @param string $type
- * @return bool
- */
-
-function verify_file_type(string $type) : bool {
-    if(($type == "image/jpeg") || ($type == "image/png")) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
 
 
 /** fonction qui cree le nouvel utilisateur dans la base de donnée avec toutes les informations rentrées

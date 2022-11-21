@@ -38,3 +38,5 @@ if(!is_not_empty_and_defined($_POST)) {
     <?php endforeach; ?>
 </div>
 
+<?php require_once __DIR__.'/../inc/footer.php' ?>
+
