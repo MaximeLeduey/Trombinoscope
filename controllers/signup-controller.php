@@ -144,7 +144,7 @@ function are_not_empty_and_defined() {
  */
 
 function verify_img_size(float $size) : bool {
-    if($size > 1000000) {
+    if($size > 2000000) {
         return false;
     }
     else {
