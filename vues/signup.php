@@ -53,7 +53,7 @@ if(!$_SESSION['admin']) {
     </select>
     <label for="password">Mot de passe</label>
     <input type="password" name="password" required>
-    <!-- <input type="file" name="image" placeholder="image" required> -->
+    <input type="file" name="image" placeholder="image" required>
     <button type="submit">Valider l'inscription</button>
 </form>
 
