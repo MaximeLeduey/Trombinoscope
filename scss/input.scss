@@ -66,6 +66,8 @@ label {
 .header{
     width: 100vw;
     height: 126px;
+    z-index: 3;
+    position: fixed;
     background-color: $main-color; 
     display: flex;
     justify-content: center;
@@ -80,6 +82,7 @@ label {
     align-items: center;
     z-index: 2;
     &_menu {
+        z-index: 3;
         display: flex;
         justify-content: space-between;
         align-items: center;
