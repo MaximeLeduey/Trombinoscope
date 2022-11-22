@@ -231,6 +231,10 @@ input {
   align-items: center;
 }
 
+.global_container.second {
+  height: 110vh;
+}
+
 .user_details {
   width: 80vw;
   display: flex;
@@ -272,7 +276,7 @@ input {
   align-items: center;
   flex-wrap: wrap;
   height: 150px;
-  width: 80vw;
+  width: 70vw;
 }
 @media (min-width: 768px) {
   .user_details_buttons {
@@ -297,6 +301,29 @@ input {
 
 #image {
   border: none;
+}
+
+.delete_container {
+  width: 100vw;
+  height: 100vh;
+}
+.delete_container_pop_up {
+  background-color: #F8F6F6;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  height: 400px;
+  width: 350px;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.delete_container p {
+  color: #054545;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=output.css.map */

@@ -6,6 +6,7 @@
 // styles généraux
 // --------------------------------------------------------------
 
+
 body * {
     font-family: $texts-font;
 }
@@ -269,6 +270,11 @@ input {
 // styles de la page details
 // --------------------------------------------------------------
 
+
+.global_container.second {
+    height: 110vh;
+}
+
 .user_details {
     width: 80vw;
     display: flex;
@@ -309,7 +315,7 @@ input {
         align-items: center;
         flex-wrap: wrap;
         height: 150px;
-        width: 80vw;
+        width: 70vw;
         @media(min-width: $tablet) {
             justify-content: space-around;
         }
@@ -321,7 +327,7 @@ input {
 
 
 // --------------------------------------------------------------
-// styles de la page d'inscription'
+// styles de la page d'inscription
 // --------------------------------------------------------------
 
 .signup-form input, .modify-form input {
@@ -338,4 +344,34 @@ input {
 
 #image {
     border:none;
+}
+
+
+
+// --------------------------------------------------------------
+// styles de la page delete
+// --------------------------------------------------------------
+
+.delete_container {
+    width: 100vw;
+    height: 100vh;
+    &_pop_up {
+        background-color: $gray;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        position: absolute;
+        height: 400px;
+        width: 350px;
+        top: 200px;
+        left: 50%;
+        transform: translateX(-50%);
+      
+    }
+    p {
+        color: $main-color;
+        font-weight: bold;
+    }
 }

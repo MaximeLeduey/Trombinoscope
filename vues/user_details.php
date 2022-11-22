@@ -7,7 +7,7 @@ if(!is_not_empty_and_defined($_POST['user_id'])) {
 
 ?>
 
-<div class="global_container">
+<div class="global_container second">
     <div class="user_details">
     <img src="data:image/jpeg;base64,<?=get_image_by_id($_POST['user_id'])[0]['img_bin'] ?>" class="user_details_img">
         <h2 class="user_details_names"><?= get_names_by_id($_POST['user_id'])[0]['first_name'].' '.get_names_by_id($_POST['user_id'])[0]['last_name'] ?></h2>
@@ -19,7 +19,7 @@ if(!is_not_empty_and_defined($_POST['user_id'])) {
         </div>
         <div class="user_details_buttons">
             <form action="./dashboard.php" method="post">
-                <button type="submit">Retour</button>
+                <button class="btn-secondary" type="submit">Retour</button>
             </form>
             <form action="./modify.php" method="post">
                 <button name="user_id" value="<?= $_POST['user_id'] ?>" type="submit" class="btn-primary ">Modifier</button>

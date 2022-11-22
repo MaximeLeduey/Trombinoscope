@@ -10,17 +10,17 @@ if(!$_SESSION['admin']) {
 ?>
 
 <form class="signup-form" action="../controllers/signup-controller.php" method="post" enctype="multipart/form-data">
-    <!-- <label for="firstName">Prénom</label> -->
+    <label for="firstName">Prénom</label>
     <input type="text" name="firstName" maxlength="30"placeholder="Prénom" required>
-    <!-- <label for="lastName">Nom</label> -->
+    <label for="lastName">Nom</label>
     <input type="text" name="lastName" maxlength="30" placeholder="Nom" required>
-    <!-- <label for="city">Ville</label> -->
+    <label for="city">Ville</label>
     <input type="text" name="city" maxlength="30" placeholder="Ville" required>
-    <!-- <label for="email">Email</label> -->
+    <label for="email">Email</label>
     <input type="email" name="email" placeholder="Email" required>
-    <!-- <label for="tel">Téléphone</label> -->
+    <label for="tel">Téléphone</label>
     <input type="tel" name="tel" placeholder="Tel" required>
-    <!-- <label for="birth">Date de naissance</label> -->
+    <label for="birth">Date de naissance</label>
     <input type="date" name="birth" required>
     <label for="grade">Classe</label>
     <select name="grade">
@@ -48,10 +48,10 @@ if(!$_SESSION['admin']) {
     </select>
     <label for="status">Statut</label>
     <select name="status">
-        <option value="0" selected>utilisateur</option>
+        <option value="0">utilisateur</option>
         <option value="1">admin</option>
     </select>
-    <!-- <label for="password">Mot de passe</label> -->
+    <label for="password">Mot de passe</label>
     <input type="password" name="password" placeholder="Mot de passe" required>
     <input type="file" id="image" name="image" placeholder="image" required>
     <button class="btn-primary" type="submit">Valider l'inscription</button>

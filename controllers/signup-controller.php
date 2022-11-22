@@ -125,8 +125,8 @@ function create_users() {
     print_r($_FILES);
     if((verify_img_size($image_size)) && (verify_file_type($image_type))) {
         $image_name = $_FILES['image']['name'];
-        // $source = $_FILES['image']['tmp_name'];
-        // move_uploaded_file($source, $image_name);
+        $source = $_FILES['image']['tmp_name'];
+        move_uploaded_file($source, $image_name);
         $image_content = file_get_contents($_FILES['image']['name']);
         $image_content = base64_encode($image_content);
         $sql = "INSERT INTO images (img_name, img_size, img_type, img_bin, user_id)
@@ -153,7 +153,7 @@ function create_users() {
 
 function verify_fields() {
     if(are_not_empty_and_defined()) {
-        $name_regex = "/^[a-zA-Z-]+$/";
+        $name_regex = "/^[a-zA-Z- éè]+$/";
         $email_regex = "/^[a-z0-9\_\-\.]+@[\da-z\.-]+\.[a-z\.]{2,6}$/";
         $tel_regex = "/^(0|\+33)[1-9]([0-9]{2}){4}$/";
         $password_regex = "/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/";
@@ -161,16 +161,16 @@ function verify_fields() {
         and check_exp($email_regex, $_POST['email']) and check_exp($tel_regex, $_POST['tel']) and 
         check_exp($password_regex, $_POST['password'])) {
             create_users();
-            echo "oui";
+            header('Location: ../vues/dashboard.php');
         }
         else {
-            echo "non";
+            echo "Erreur, une ou plusieurs des variables ne remplissent pas les critères des regex";
         }
     }
     else {
-        echo "pas defini";
+        echo "Erreur, une ou plusieurs des variables ne sont pas définies";
     }
-    // header('Location: ../vues/signup.php');
+    
 }
 
 verify_fields();

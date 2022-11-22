@@ -33,18 +33,15 @@ function verify_modify() {
         if(check_exp($name_regex, $_POST['city']) 
         and check_exp($email_regex, $_POST['email']) and check_exp($tel_regex, $_POST['tel']) and 
         check_exp($password_regex, $_POST['password'])) {
-            // return true;
-            echo "true";
             modify_user($_POST['user_id']);
+            header('Location: ../vues/dashboard.php');
         }
         else {
-            // return false;
-            echo "false2";
+            echo "Erreur, une ou plusieurs des variables ne remplissent pas les critères des regex";
         }
     }
     else {
-        // return false;
-        echo "false1";
+        echo "Erreur, une ou plusieurs des variables ne sont pas définies";
     }
 }
 
