@@ -7,6 +7,7 @@
 }
  ?>
 
+
 <div class="modify-form">
     <form action="../controllers/modify-controller.php" method="post" enctype="multipart/form-data">
         <label for="city">Ville</label>
