@@ -22,7 +22,7 @@ if(!is_not_empty_and_defined($_POST['user_id'])) {
                 <button type="submit">Retour</button>
             </form>
             <form action="./modify.php" method="post">
-                <input name="user_id" value="<?= $_POST['user_id'] ?>" type="submit" class="btn-primary ">
+                <button name="user_id" value="<?= $_POST['user_id'] ?>" type="submit" class="btn-primary ">Modifier</button>
             </form>
            
             

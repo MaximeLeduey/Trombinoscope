@@ -18,10 +18,10 @@
         <label for="password">Mot de passe</label>
         <input type="password" name="password" required>
         <!-- <input type="file" name="image" placeholder="image" required> -->
-        <input class="btn-primary" value="<?= $_POST['user_id'] ?>" type="submit" name="user_id"></input>
+        <button class="btn-primary" value="<?= $_POST['user_id'] ?>" type="submit" name="user_id">Modifier</button>
     </form>
     <form action="./delete.php" method="post">
-        <input class="btn-secondary" value="<?= $_POST['user_id'] ?>" type="submit" name="user_id"></input>
+        <button class="btn-secondary" value="<?= $_POST['user_id'] ?>" type="submit" name="user_id">Supprimer</button>
     </form>
 </div>
 

@@ -34,7 +34,7 @@ if(!is_not_empty_and_defined($_POST)) {
             <img src="data:image/jpeg;base64,<?=get_image_by_id($user['user_id'])[0]['img_bin'] ?>" class="user_img">
             <h2 class="user_names"><?= $user['first_name'].' '.$user['last_name'] ?></h2>
             <form class="user_form" action="../vues/user_details.php" method="post">
-                <input type="submit" name="user_id" value="<?= $user['user_id'] ?>" class="user_btn btn-primary" placeholder="Consulter le profil">
+                <button type="submit" name="user_id" value="<?= $user['user_id'] ?>" class="user_btn btn-primary">Voir plus</button>
             </form>
         </div> 
     <?php endforeach; ?>

@@ -9,11 +9,11 @@ if(!is_not_empty_and_defined($_POST['user_id'])) {
 ?>
 
 <form action="../vues/modify.php" method="post">
-    <input type="submit" class="btn-primary" value="Retour"></input>
+    <button type="submit" class="btn-primary" value="Retour">Retour</button>
 </form>
 
 <form action="../controllers/delete-controller.php" method="post">
-    <input type="submit" class="btn-primary" value="<?= $_POST['user_id'] ?>" name="user_id">
+    <button type="submit" class="btn-primary" value="<?= $_POST['user_id'] ?>" name="user_id">Supprimer définitivement</button>
 </form>
 
 
