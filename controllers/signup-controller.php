@@ -125,8 +125,8 @@ function create_users() {
     print_r($_FILES);
     if((verify_img_size($image_size)) && (verify_file_type($image_type))) {
         $image_name = $_FILES['image']['name'];
-        $source = $_FILES['image']['tmp_name'];
-        move_uploaded_file($source, $image_name);
+        // $source = $_FILES['image']['tmp_name'];
+        // move_uploaded_file($source, $image_name);
         $image_content = file_get_contents($_FILES['image']['name']);
         $image_content = base64_encode($image_content);
         $sql = "INSERT INTO images (img_name, img_size, img_type, img_bin, user_id)
