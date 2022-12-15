@@ -9,7 +9,7 @@ function db_connect()
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ];
         // data source name
-        $dsn = 'mysql:host=' . HOST . ';dbname=' . DB_NAME . ';charset=utf8';
+        $dsn = 'mysql:host=' . HOST.';dbname=' . DB_NAME . ';charset=utf8';
         // instance de la base de données (pdo)
         $dbh = new PDO($dsn, USER, PWD, $options);
         return $dbh;
